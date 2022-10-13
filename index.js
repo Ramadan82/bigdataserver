@@ -6,7 +6,7 @@ const serviceroutes = require("./src/routes/serviceroutes");
 
 const app = express();
 
-mongoose.connect(process.env.MONGDB_URI).then(() => {
+mongoose.connect(process.env.MONGODB_URI).then(() => {
   app.listen(process.env.PORT || 5000, () => {
     const port = server.address().port;
     console.log(`server listening on port ${port}`);
@@ -15,3 +15,4 @@ mongoose.connect(process.env.MONGDB_URI).then(() => {
 app.use(express.json());
 app.use("/user", authroutes);
 app.use("/services", serviceroutes);
+//L0vJFBMH6IiZGayv
