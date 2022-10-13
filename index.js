@@ -6,13 +6,17 @@ const serviceroutes = require("./src/routes/serviceroutes");
 
 const app = express();
 
-mongoose.connect(process.env.MONGODB_URI{useNewUrlParser: true,
-    useUnifiedTopology: true,}).then(() => {
-  app.listen(process.env.port || 5000, () => {
-    const port = server.address().port;
-    console.log(`server listening on port ${port}`);
+mongoose
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    app.listen(process.env.PORT || 5000, () => {
+      const port = process.env.PORT;
+      console.log(`server listening on port ${port}`);
+    });
   });
-});
 app.use(express.json());
 app.use("/user", authroutes);
 app.use("/services", serviceroutes);
