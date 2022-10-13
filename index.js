@@ -5,11 +5,10 @@ const authroutes = require("./src/routes/authroutes");
 const serviceroutes = require("./src/routes/serviceroutes");
 
 const app = express();
-const uri = process.env.DB_URI;
-
+const uri = process.env.MONGODB_URI;
+process.env.PORT;
 mongoose.connect(uri).then(() => {
-  app.listen(process.env.PORT || 5000, () => {
-    const port = server.address().port;
+  app.listen(port, () => {
     console.log(`server listening on port ${port}`);
   });
 });
