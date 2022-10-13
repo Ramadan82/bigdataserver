@@ -6,7 +6,8 @@ const serviceroutes = require("./src/routes/serviceroutes");
 
 const app = express();
 
-mongoose.connection.openUri(process.env.MONGODB_URI).then(() => {
+mongoose.connect(process.env.MONGODB_URI{useNewUrlParser: true,
+    useUnifiedTopology: true,}).then(() => {
   app.listen(process.env.port || 5000, () => {
     const port = server.address().port;
     console.log(`server listening on port ${port}`);
