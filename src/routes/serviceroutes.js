@@ -5,6 +5,7 @@ const {
   createAservice,
   updateAservice,
   deleteAservice,
+  deleteAllServices,
 } = require("../controllers/servicecontroller");
 const requireAuth = require("../middlewares/requireAuth");
 
@@ -16,5 +17,6 @@ router.get("/:id", getAservice);
 router.post("/", createAservice);
 router.patch("/:id", updateAservice);
 router.delete("/:id", deleteAservice);
+router.delete("/", deleteAllServices);
 
 module.exports = router;

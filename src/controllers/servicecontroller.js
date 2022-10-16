@@ -61,6 +61,11 @@ const deleteAservice = async (req, res) => {
   return res.status(200).json(service);
 };
 
+const deleteAllServices = async (req, res) => {
+  await Service.deleteMany({});
+  res.status(200).json({ message: "Services deleted" });
+};
+
 const updateAservice = async (req, res) => {
   const { id } = req.params;
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -79,4 +84,5 @@ module.exports = {
   createAservice,
   deleteAservice,
   updateAservice,
+  deleteAllServices,
 };
